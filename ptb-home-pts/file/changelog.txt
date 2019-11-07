@@ -1,0 +1,179 @@
+﻿LMT Anti Porn là phần mềm giúp bảo vệ trẻ em khỏi những nội dung người lớn/đồi trụy trên internet.
+Website: https://leminhthanh1998.github.io/lmt-anti-porn/
+Các video hướng dẫn: https://www.youtube.com/playlist?list=PLKKmCuT-57x8ZZE26VVhib2FRJoEnwq36
+----------------------------------
+Changelog:
+3.3 (27/8/2019):
+-Bổ sung tính năng sử dụng các filter list. Bạn có thể dùng Easylist, Adguard Filter list,...để tăng khả năng chặn quảng cáo, các script theo dõi,...
+-Cập nhật lại tính năng chặn website.
+-Cập nhật các thư viện.
+3.2.5 (22/8/2019):
+-Bổ sung tính năng bật/tắt phần mềm từ LMT Anti Porn Online.
+-Chỉnh sửa lại tính năng Tự động cập nhật.
+3.2.4 (20/8/2019):
+-Sửa lỗi ở tính năng Tự bảo vệ.
+-Bổ sung tùy chọn xóa cache.
+3.2.3 (14/8/2019):
+-Bổ sung tính năng Tự động cập nhật phần mềm. Khi bật tùy chọn này, phần mềm sẽ tự động nâng cấp lên phiên bản mới khi có sẵn.
+-Sửa lỗi ở tính năng Chặn theo từ khóa khi bật tùy chọn sử dụng Machine Learning.
+-Ở giao diện LMT Anti Porn Online đã hỗ trợ bạn tạo nhiều tài khoản con để giám sát.
+3.2.2 (7/8/2019):
+-Sửa 1 lỗi quan trọng của phần mềm.
+3.2.1 (7/8/2019):
+-Cập nhật API.
+3.2 (6/8/2019):
+-Cải thiện hiệu suất, giờ phần mềm đã chặn các website người lớn và độc hại nhanh hơn.
+-Cập nhật lại các API. Các API cũ đã tắt, bạn cần phải cập nhật lên phiên bản này để có thể dùng được các chức năng của phần mềm.
+-Ngưng hỗ trợ Windows 7.
+3.1.1 (18/7/2019):
+-Bổ sung tính năng xóa tham số "fbclid" khỏi các liên kết nhầm tránh Facebook và các website theo dõi bạn.
+-Cập nhật lại việc lưu trữ mật khẩu.
+-Cập nhật lại giao diện tạo mật khẩu.
+3.1 (9/7/2019):
+-Từ phiên bản này đã hỗ trợ thiết lập gần như đầy đủ các tính năng của phần mềm từ dịch vụ LMT Anti Porn Online. Các bạn nên đồng bộ phần mềm với dịch vụ này.
+-Cập nhật lại tính năng bảo vệ thư mục cài đặt.
+3.0 (22/6/2019):
+-Bổ sung tùy chọn Machine Learning. Khi kích hoạt tính năng này, phần mềm sẽ gửi tiêu đề cùng với url của trang web bạn đang truy cập đến hệ thống LMT Anti Porn Online, tại đây sẽ sử dụng các thuật toán Machine Learning để tiến hành phân tích, sau đó tổng hợp vào hệ thống CSDL online.
+-Cập nhật lại giao diện, bổ sung Dark Theme.
+-Sửa lỗi phần mềm bị crash khi bật tính năng chặn quảng cáo.
+-Sửa lỗi các cài đặt đôi khi bị reset về mặc định.
+-Vài chỉnh sửa khác.
+2.9 (12/6/2019):
+-Bổ sung trang Cloud cho phép bạn xem trạng thái của CSDL online. Bạn cũng có thể đóng góp thêm các tên miền còn thiếu.
+-Bổ sung tính năng Chặn truy cập đến các trang web game online.
+-Hỗ trợ thêm Pixabay Safesearch.
+-Loại bỏ tính năng Nofap Challenge.
+2.8 (1/6/2019):
+-Bổ sung tính năng Chặn những địa chỉ đắng ngờ (những địa chỉ web dạng IP).
+-Bổ sung tính năng Chặn truy cập đến các trang DarkWeb (cụ thể là các mạng Tor).
+-Bổ sung tính năng Chặn truy cập web theo quốc gia.
+-Bạn đã có thể thay đổi mật khẩu của phần mềm từ dịch vụ LMT Anti Porn Online.
+-Sữa lỗi ở tính năng DNS over HTTPS của Cloudflare.
+2.7.1 (24-5-2019):
+-Cập nhật lại API cho tính năng Bảo vệ duyệt web.
+-Sửa lỗi phần mềm bị crash khi không có kết nối mạng ở tính năng kích hoạt DNS over HTTPS của Cloudflare.
+2.7 (18-5-2019):
+-LMT Anti Porn Online chính thức hoạt động, không còn giai đoạn beta. Ở các phiên bản sau sẽ hỗ trợ đồng bộ hết các tùy chọn.
+-Bổ sung tính năng kích hoạt DNS over HTTPS của Cloudflare giúp lướt web an toàn.
+-Sửa lỗi phần mềm tự động kích hoạt lại khi đã "Dừng lọc".
+2.7 beta 2 (4-5-2019):
+-Sửa lỗi phần mềm bị crash khi không có kết nối mạng.
+2.7 beta 1 (27-4-2019):
+-Hỗ trợ dịch vụ LMT Anti Porn Online. Đây là dịch vụ cho phép bạn điều khiển phần mềm LMT Anti Porn từ xa.
+-Sửa 1 lỗi ở tính năng Chặn website. Lỗi phát sinh khi bạn xóa hết các website có trong danh sách chặn.
+2.6 (21-2-2019):
+-Bổ sung tính năng thiết lập các dịch vụ DNS nhằm nâng cao khả năng chặn các trang web người lớn.
+-Bổ sung tính năng xuất/nhập các dữ liệu cài đặt của phần mềm.
+-Bạn đã có thể thay đổi nội dung tại trang thông báo khi chặn trang web.
+-Bạn đã có thể chuyển hướng trang web bị chặn đến 1 địa chỉ khác.
+-Sửa lỗi khi lưu cài đặt thời gian làm phần mềm bị lỗi không thể khởi động.
+2.5 (27-12-2018):
+-Hỗ trợ sử dụng các cú pháp của Adblock Plus để thiết lập việc chặn các trang web.
+Điều này giúp bạn chặn các trang web một cách chính xác với nhiều tùy chọn khác nhau.
+Video hướng dẫn: https://youtu.be/hsB8ckzoNpY
+-Cập nhật lại giao diện.
+-Sửa vài lỗi nhỏ.
+2.4.2 (23-12-2018):
+-Từ phiên bản này việc cập nhật phần mềm đã trở nên đơn giản hơn.
+LMT Anti Porn sẽ giúp bạn tải về và chạy file cài đặt.
+-Cập nhật lại tính năng Ẩn địa chỉ IP.
+-Sửa lỗi ở tính năng Bảo vệ duyệt web.
+-Cập nhật tính năng Tự động kiểm tra cập nhật.
+2.4.1 (22-12-2018):
+-Cập nhật lại tính năng Chặn tải tệp tin thực thi (.exe).
+2.4 (18-12-2018):
+-Cập nhật tính năng Thiết lập thời gian. Bây giờ bạn đã có thể thiết lập thời gian cho các ngày cụ thể trong tuần.
+-Bổ sung tính năng thiết lập độ nhạy khi sử dụng CSDL online.
+-Bạn đã có thể thiết lập độ nhạy cho tính năng Phát hiện hình ảnh.
+-Sửa lỗi ở tính năng sử dụng CSDL online.
+-Sửa lỗi phần mềm không tự động chạy khi laptop sử dụng pin.
+-Thay đổi cách thức lưu trữ mật khẩu.
+-Cập nhật các thư viện.
+2.3.3 (4-12-2018):
+-Sửa lỗi không thể kích hoạt tính năng Tìm kiếm an toàn.
+2.3.2 (25-11-2018):
+-Sửa tiếp 1 lỗi ở tính năng Bảo vệ duyệt web.
+Không hiểu sao tới giờ này thanh niên tác giả mới phát hiện ra lỗi đó.
+2.3.1 (25-11-2018):
+-Sửa lỗi ở tính năng Bảo vệ duyệt web.
+-Sửa lỗi phần mềm không lọc website khi máy tính bị tắt tường lửa.
+2.3 (24-11-2018):
+-Bổ sung tính năng Thay đổi các từ khóa bị chặn trong trang web.
+-Tính năng Chặn theo nội dung đã nhận diện các từ khóa chính xác hơn.
+-Cập nhật tính năng NoFap Chanllenge.
+-Tùy chọn Bảo vệ thư mục được bật mặc định.
+-Cập nhật thư viện.
+2.2.4 (8-11-2018):
+-Bổ sung tính năng thử thách NoFap.
+-Cập nhật tính năng bảo vệ thư mục.
+2.2.3 (31-10-2018):
+-Bổ sung tính năng bảo vệ thư mục cài đặt phần mềm.
+-Cập nhật tiến trình ProtectAntiPorn.
+2.2.2 (27-10-2018):
+-Bổ sung tính năng vô hiệu hóa việc sử dụng Proxy.
+2.2.1 (23-10-2018):
+-Hỗ trợ HĐH Windows 7. Lưu ý: Hiện tại không hỗ trợ các tính năng Phát hiện hình ảnh trực tuyến và ngoại tuyến đối với HĐH Windows 7.
+-Cập nhật lại các thư viện.
+2.2 (16-10-2018):
+-Bổ sung tính năng Cập nhật CSDL online.
+-Bổ sung tính năng chặn mở các hình ảnh có nội dung người lớn trên máy tính.
+-Một vài chỉnh sửa khác.
+2.1 (10-10-2018):
+-Bổ sung tính năng chặn "đã xem" và "đang trả lời" trong trò chuyện Facebook và Messenger.
+-Sửa lỗi ở tính năng Trang web cho phép.
+-Sửa lỗi ở tính năng Chặn trang web độc hại.
+-Sửa lỗi ở tính năng Không theo dõi.
+-Sửa lỗi không tương thích với phần mềm Internet Download Manager.
+2.0.1 (30-9-2018):
+-Sửa lỗi không đăng nhập được trên các website khi bật tính năng Chặn quảng cáo.
+2.0 (30-9-2018):
+-Thiết kế lại trang chủ của phần mềm.
+-Bổ sung tính năng chặn quảng cáo.
+-Bổ sung tính năng cập nhật các trang web người lớn online.
+-Sửa lỗi ở tính năng chặn mã độc đào tiền ảo.
+-Một vài chỉnh sửa khác.
+1.9.1 (22-9-2018):
+-Sửa 1 lỗi nghiêm trọng ở tính năng Chặn trang web.
+1.9 (22-9-2018):
+-Bổ sung tính năng Chặn những liên kết độc hại/lừa đảo.
+-Bổ sung tính năng Chặn mã độc đào tiền ảo.
+-Di chuyển tính năng Chặn tải tệp tin thực thi sang tab Cài đặt an toàn.
+-Cập nhật lại giao diện.
+-Cập nhật lại tính năng chặn trang web.
+1.8:
+-Tính năng Phát hiện hình ảnh không còn ở giai đoạn beta. Tính năng này cho phép phát hiện và loại bỏ hình ảnh có nội dung khiêu dâm.
+-Sửa lỗi khi lưu cài đặt.
+-Cập nhật lại tiến trình ProtectAntiPorn.
+1.7 (9-9-2018):
+-Bảo sung các tính năng bảo vệ sự riêng tư khi truy cập Internet.
+-Bạn đã có thể chọn các ứng dụng để lọc truy cập Internet trên chúng.
+-Bổ sung tùy chọn Chặn tải tệp tin thực thi.
+-Sửa 1 lỗi khá nghiêm trọng trong tính năng Chặn ứng dụng truy cập Internet.
+-Thay đổi cách thức hiển thị thông báo.
+-Cập nhật WinDivert.
+1.6.1 (2-9-2018):
+-Sửa lỗi khi khởi động lần đầu từ file cài đặt.
+-Từ phiên bản 1.6.1 khi gỡ cài đặt phần mềm sẽ phải nhập mật khẩu bảo vệ.
+1.6 (1-9-2018):
+-Bổ sung tính năng chặn các ứng dụng truy cập Internet.
+-Bổ sung tính năng Thiết lập thời gian được phép truy cập Internet.
+-Từ phiên bản 1.6 chỉ hỗ trợ từ HĐH Windows 8 trở lên.
+1.5 (23-8-2018):
+-Bổ sung tính năng Trang web cho phép. Tính năng này sẽ chỉ cho phép bạn truy cập những trang web nhất định có trong danh sách.
+Lưu ý: Những trang web trong danh sách khi truy cập có thể sẽ không load được các nội dung đa phương tiện.
+1.5 beta (19-8-2018):
+-Bổ sung và tiến hành thử nghiệm tính năng Phát hiện hình ảnh chứa nội dung khiêu dâm.
+1.4 (16-8-2018):
+-Bổ sung tính năng tự động kích hoạt Tìm kiếm an toàn trên Bing, Yahoo và DuckDuckGo.
+-Bổ sung tính năng tự động bật Chế độ hạn chế trên Youtube.
+1.3 (6-8-2018):
+-Sửa lỗi cho phép vượt qua phần đăng nhập để điều khiển phần mềm.
+-Sửa lỗi không tương thích với Windows 7.
+1.2 (5-8-2018):
+-Bổ sung tính năng chặn kênh Youtube.
+-Nâng cấp tính năng chặn theo nội dung website.
+-Hỗ trợ chặn theo địa chỉ trang web riêng lẻ.
+1.1 (2-8-2018):
+-Bổ sung thêm tính năng tự động kích hoạt Tìm kiếm an toàn trên Google.
+-Hỗ trợ thêm trình duyệt Cốc Cốc.
+-Nâng cấp tính năng tự động bảo vệ.
