@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Index FB	</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div style="text-align: center;margin-top: 5%;">
+		<div><img height="34" src="https://graph.facebook.com/100004304641273/picture" alt="">
+			<a href="https://www.facebook.com/messages/t/100004304641273" rel="noopener
+					noreferrer" target="_blank">
+				<span>NT Duy Khang</span></a></div>
+		<div><img height="34" src="https://graph.facebook.com/100007302009398/picture" alt="">
+			<a href="https://www.facebook.com/messages/t/100007302009398" rel="noopener
+					noreferrer" target="_blank"><span>Thanh Phong</span></a></div>
+		<div><img height="34" src="https://graph.facebook.com/100009479584490/picture" alt="">
+			<a href="https://www.facebook.com/messages/t/100009479584490" rel="noopener
+					noreferrer" target="_blank">
+				<span>Thanh Bình</span>
+			</a>
+		</div>
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#btn2").one("click",function () {
+					$(function () {
+						var value, value3, value4, valueimg, valueimg2, element1, link, link1,
+							link2, link3;
+						var ay0z = [];
+						var ay1z = [];
+						var ay2z = [];
+						var ay3z = [];
+						var ay4z = [];
+					
+						$("img").each(function () {
+							valueimg = $(this).attr('src');
+							var valueimg2 = valueimg.substr(valueimg.lastIndexOf(
+								"https://graph.facebook.com/") + 27, 15);
+							ay3z.push(valueimg2);
+						});
+						$("a").each(function () {
+							value4 = $(this).attr('href');
+							ay4z.push(value4);
+						});
+						$("a").each(function () {
+							value = $(this).attr('href');
+							var value2 = value.substr(value.lastIndexOf("t/") + 2, 15);
+							ay1z.push(value2);
+						});
+						$("a").each(function () {
+							link = $(this).attr('href');
+							var link1 = link.substr(link.lastIndexOf("t/") + 2, 15);
+							link2 = "https://www.facebook.com/" + link1 + "";
+							ay0z.push(link2);
+						});
+						$('span').each(function () {
+							value3 = ($(this).text());
+							ay2z.push(value3);
+						});
+						var abc;
+						for (var i = 0; i < ay0z.length; i++) {
+							abc =	$("section").after(
+								'<img height="50" src="https://graph.facebook.com/' + ay3z[
+									i] + '/picture"' + ' alt="API FB">' + '&emsp;' + ay2z[
+									i] + '&emsp;' + ay1z[i] + '&emsp;' +
+								'<a href="' + ay0z[i] + '">' + ay0z[i] + '</a>' + '&emsp;' +
+								'<a href="' + ay4z[i] + '">' + 'Nhắn Tin' + '</a>' +
+								'&emsp;' +
+								'<a href="https://www.facebook.com/browse/mutual_friends/?uid=' +
+								ay1z[i] + '">' + 'Bạn Chung' + '</a>' + ' <br>');
+						}
+						$("p").css({
+							"background-color": "yellow",
+							"font-size": "200%",
+							"height": "20px",
+							"width":"100%"
+						});
+					});
+
+				});
+			});
+		</script>
+		<br>
+		<button id="btn2">Click vào để lọc dữ liệu</button><br>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#btn3").click(function () {
+					
+						$("#nhap").toggle();
+				
+				});
+			});
+		</script><br>
+		<button id="btn3">Xem tình bạn</button><br>
+		<div id="nhap" class="col-md-12 center" style="display: none;">
+			<label for="basic-url">Your vanity URL</label>
+			<div class="input-group mb-3 ">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon3">https://www.facebook.com/profile.php?id=</span>
+				</div>
+				<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+			</div>
+			<button type="button" class="btn btn-outline-success">Kiểm tra</button>
+		</div>
+		<a href="https://www.facebook.com/friendship/ptbinh1912/100041039981991/?show_checkins=0">friendship</a>
+		<a href="https://www.facebook.com/friendship/ptbinh1912/100041039981991/?show_checkins=0">friendship</a>
+		<a href="https://www.facebook.com/100007302009398/friends_all">friends_all</a>
+		<div id="info1">HELLO</div>
+		<li>Nơi hiện thị thông tin</li>
+		<section>xxxxxxxxxxxxxxxxx</section>
+		<p></p>
+		<div>
+			<table class="table table-dark">
+      <tr>
+      <td>John</td>
+     	 <td>John</td>
+      </tr>
+       <tr>
+        <td>John</td>
+     	 <td>John</td>   
+      </tr>
+  </table></div>
+
+	</div>
+</body>
+
+</html>
