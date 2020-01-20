@@ -334,6 +334,32 @@
                 width: 120px;
             }
         }
+ul#example {
+  list-style: none;
+  margin: 50px 0;
+  padding: 0;
+  display: block;
+  text-align: center;
+}
+
+ul#example li { display: inline-block; }
+
+ul#example li span {
+  font-size: 80px;
+  font-weight: 300;
+  line-height: 80px;
+}
+
+ul#example li.seperator {
+  font-size: 80px;
+  line-height: 70px;
+  vertical-align: top;
+}
+
+ul#example li p {
+  color: #a7abb1;
+  font-size: 25px;
+}
     </style>
 </head>
 
@@ -370,16 +396,49 @@
             <img src="https://lh3.googleusercontent.com/-vU3Oac1_HWU/VouPN8OOc1I/AAAAAAAACec/sHtg7wSdTwU/s0-Ic42/moon.png" alt="" id="moon" style="visibility: hidden;">
 		
         </aside>
-		
-        <div id="canvastext"></div>
-
-        
-        <div id="count-down-wrapper">
+		 <div id="count-down-wrapper">
             <div class="SLToday"></div>
             <div class="soon" id="soon-glow" data-layout="group overlap" data-face="slot doctor glow" data-padding="false" data-scale-max="l" data-visual="ring color-light width-thin glow-progress length-70 gap-0 offset-65" data-labels-days="Ngày,Ngày" data-labels-hours="Giờ,Giờ"
                 data-labels-minutes="Phút,Phút" data-labels-seconds="Giây,Giây" data-due="2020-01-25T00:00:00">
             </div>
         </div>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+			<ul id="example">
+			  <li><span class="days">00</span><p class="days_text">Days</p></li>
+			  <li class="seperator">:</li>
+			  <li><span class="hours">00</span><p class="hours_text">Hours</p></li>
+			  <li class="seperator">:</li>
+			  <li><span class="minutes">00</span><p class="minutes_text">Minutes</p></li>
+			  <li class="seperator">:</li>
+			  <li><span class="seconds">00</span><p class="seconds_text">Seconds</p></li>
+			</ul>
+			<script>
+			// Target date
+				date: null,
+
+				// time zone
+				offset: null,
+
+				// Countdown text
+				day: 'Day',
+				days: 'Days',
+				hour: 'Hour',
+				hours: 'Hours',
+				minute: 'Minute',
+				minutes: 'Minutes',
+				second: 'Second',
+				seconds: 'Seconds'
+				$('#example').countdown({
+				date: '12/24/2020 23:59:59'
+				}, function () {
+				  alert('Merry Christmas!');
+				});
+			</script>
+        <canvas id="canvastext"></canvas>
+
+        
+       
     </div>
     <div id="footer-controls">
 
@@ -478,12 +537,6 @@
             })();
 
             $(document).ready(function() {
-
-
-
-
-              
-
                 $('#count-down-wrapper .soon').attr('data-now', moment().format());
                 var soon = document.querySelectorAll('#count-down-wrapper .soon');
                 Soon.create(soon[0]);
@@ -495,9 +548,6 @@
                 var ld = getLunarDate(dd, mm, yy);
 
                 $(".SLToday").html("Hôm nay: " + vnCurrentTime.format("DD-MM-YYYY") + " <i class='fa fa-calendar'></i> " + ld.day + "-" + ld.month + "-" + ld.year + ", " + getYearCanChi(ld.year));
-
-
-
             });
         </script>
 	 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="js/script.js"></script>
