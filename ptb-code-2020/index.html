@@ -373,16 +373,7 @@
 		
         <canvas id="canvastext"></canvas>
 
-        <div class="hi-icon-wrap hi-icon-effect-8">
-            <a href="#" class="hi-icon hi-icon-photo">Photo</a>
-            <a href="#" class="hi-icon hi-icon-video">Video</a>
-            <div id="home-button">
-                <a href="#" class="homepage-btn">Go To Homepage</a>
-            </div>
-            <a href="#" class="hi-icon hi-icon-music">Music</a>
-            <a href="#" class="hi-icon hi-icon-livetv">TV</a>
-        </div>
-	
+        
         <div id="count-down-wrapper">
             <div class="SLToday"></div>
             <div class="soon" id="soon-glow" data-layout="group overlap" data-face="slot doctor glow" data-padding="false" data-scale-max="l" data-visual="ring color-light width-thin glow-progress length-70 gap-0 offset-65" data-labels-days="Ngày,Ngày" data-labels-hours="Giờ,Giờ"
@@ -398,10 +389,7 @@
         <script src="lib/soundjs-0.6.2.min.js"></script>
         <script src="lib/flashaudioplugin-0.6.2.min.js"></script>
         <script src="lib/jplayer/jquery.jplayer.min.js"></script>
-        <script>
-            createjs.FlashAudioPlugin.swfPath = "lib/flashaudio/FlashAudioPlugin.swf";
-            createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.HTMLAudioPlugin, createjs.FlashAudioPlugin]);
-        </script>
+       
         <script src="js/requestanimframe.js"></script>
         <script src="js/fireworks.min.js"></script>
         <script src="lib/moment.js"></script>
@@ -494,16 +482,7 @@
 
 
 
-                $("#footer-controls a.music-control").on("click", function() {
-                    var curState = $(this).data("play-pause");
-                    if (curState == "play") {
-                        MBG.jPlayer("pause");
-                        $(this).data("play-pause", "pause").html('Bật nhạc <i class="fa fa-play-circle"></i>');
-                    } else {
-                        MBG.jPlayer("play");
-                        $(this).data("play-pause", "play").html('Tắt nhạc <i class="fa fa-pause-circle"></i>');
-                    }
-                });
+              
 
                 $('#count-down-wrapper .soon').attr('data-now', moment().format());
                 var soon = document.querySelectorAll('#count-down-wrapper .soon');
