@@ -1,0 +1,19 @@
+.layout-2c-r {
+	#primary {
+		float: right;
+		margin-right: 0;
+	}
+	#secondary {
+		float: left;
+	}
+}
+
+.layout-1c {
+	#primary {
+		width: 100%;
+		float: none;
+	}
+	.sidebar {
+		display: none;
+	}
+}

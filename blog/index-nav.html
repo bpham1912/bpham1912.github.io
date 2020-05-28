@@ -13,7 +13,7 @@
 	<meta name="author" content="themejunkie">
 
 	<!-- Title -->
-	<title>PostBoard</title>
+	<title>PostBoard | No Infinite Scroll</title>
 
 	<!-- Stylesheets -->
 
@@ -34,7 +34,6 @@
 
 <!-- <body> -->
 <body class="home three-columns">
-<!-- <body class="layout-1c"> --><!-- For full width page only -->
 
 	<!-- Page / Start -->
 	<div id="page" class="hfeed site clearfix">
@@ -673,8 +672,16 @@
 
 				</div>
 
-				<nav id="page-nav">
-					<a href="index-page2.html"><img src="assets/img/bx_loader.gif" alt="Loading..."/></a>
+				<nav class="navigation posts-navigation">
+					<h2 class="screen-reader-text">Posts navigation</h2>
+					<div class="nav-links">
+						<div class="nav-previous">
+							<a href="index-nav.html">Older posts</a>
+						</div>
+						<div class="nav-next">
+							<a href="index-nav.html">Newer posts</a>
+						</div>
+					</div>
 				</nav>
 
 			</div>

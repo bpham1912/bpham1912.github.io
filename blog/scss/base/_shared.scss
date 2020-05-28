@@ -1,0 +1,228 @@
+body {
+	background: $body-bg-color;
+	color: $body-font-color;
+	font-family: $body-font-family;
+	font-style: $body-font-style;
+	font-size: $font-size;
+	font-weight: $body-font-weight;
+	line-height: ($base-line-height / $font-size) * 1em;
+}
+
+/**
+ * Selection Color.
+
+::selection { 
+	background: $selection-bg-color; 
+	color: $selection-font-color; 
+	text-shadow: none; 
+}
+
+::-moz-selection{ 
+	background: $selection-bg-color; 
+	color: $selection-font-color; 
+	text-shadow: none; 
+}
+ */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+	font-family: $body-font-family;
+	font-size: 12px;
+	font-weight: 300;
+	background-color: #f5f5f5;
+	border-radius: 3px;
+	border: 0;
+	outline: none;
+	color: #333;	
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+	transition: all 200ms ease-in-out 0s;   
+	&:hover,
+	&:focus {
+		background-color: #e9e9e9;
+		outline: none;		
+	}
+
+}
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+	height: 36px;
+	line-height: 36px;
+	padding: 0 10px;
+}
+textarea {
+	padding: 10px;
+}
+button,
+#respond #commentform .btn,
+input[type="submit"] {
+	@extend .box-shadow;
+	border: none;
+	border-radius: 3px;
+	padding: 0 10px;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: $accent-1;
+	color: #fff;
+	font-family: $body-font-family;
+	font-size: 10px;
+	font-weight: bold;
+	height: 36px;
+	line-height: 36px;
+	text-transform: uppercase;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-appearance: none;	
+}
+button:hover,
+#respond #commentform .btn:hover,
+input[type="submit"]:hover {
+	opacity: 0.9;
+}
+button:focus {
+	outline:0;
+}
+table {
+	font-family: $body-font-family;
+	font-size: 14px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #e9e9e9;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #e6e6e6;
+	background-color: #f0f0f0;
+}
+
+table tr:hover td {
+	background-color: #f9f9f9;
+}
+
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #e6e6e6;
+	background-color: #ffffff;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	@extend %center-block;
+	clear: both;
+}
+
+.alignnone {
+    display: block;
+}
+.clearfix:before, 
+.clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	clear: both;
+}
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute;
+}
+
+.sticky,
+.bypostauthor {
+	background: inherit;
+	color: inherit;
+}
+
+.gray-link {
+	a:link,
+	a:visited {
+		color: #999;		
+	}
+	a:hover {
+		color: #333;
+	}
+}
+.dark-link {
+	a:link,
+	a:visited {
+		color: #666;		
+	}
+	a:hover {
+		color: $link-color;
+	}
+}
+.black-link {
+	a:link,
+	a:visited {
+		color: #333;		
+	}
+	a:hover {
+		color: $link-color;
+	}
+}
+
+
+/* Link Hover */
+a:hover {
+	color: $link-color;
+}
+/* CSS3 Effects */
+.box-shadow {
+	box-shadow: rgba(190, 190, 190, 0.45882) 0px 1px 5px;
+    -webkit-box-shadow: rgba(190, 190, 190, 0.45882) 0px 1px 5px;	
+}
+/* Ninja Forms */
+.ninja-forms-form-wrap input[type="submit"] {
+  border-radius: 24px;
+  font-size: 12px;
+  padding: 0 15px;
+}
+.ninja-forms-required-items {
+	margin: 0 0 30px 0;
+	color: #999;
+	font-style: italic;
+}
+.text-wrap.label-above label, 
+.textarea-wrap.label-above label {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 12px;
+  font-family: $heading-font-family;
+  letter-spacing: 1px;
+}
+.field-wrap.label-right label, 
+.field-wrap.label-left label {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 12px;
+  font-family: $heading-font-family;
+  letter-spacing: 1px;
+}
