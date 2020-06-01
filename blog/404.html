@@ -29,18 +29,24 @@
 
 	<!-- Favicon -->
 	<link type="image/x-icon" href="assets/img/favicon.png" rel="shortcut icon">
-
+	<script>
+		fetch("about.html")
+			.then(response => {
+				return response.text()
+			})
+			.then(data => {
+				document.querySelector("section").innerHTML = data;
+			});
+	</script>
 </head>
 
 <!-- <body> -->
 <body class="error-404">
-
 	<!-- Page / Start -->
 	<div id="page" class="hfeed site clearfix">
-
 		<!-- Primary Bar / Start -->
 		<div id="primary-bar" class="clearfix">
-
+			<section></section>
 			<div class="container inner">
 
 				<!-- Primary Navigation / Start -->

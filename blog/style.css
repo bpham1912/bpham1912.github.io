@@ -3981,3 +3981,36 @@ blockquote cite:before {
 	background-color: #333;
 }
 
+
+/*key frame text effect*/
+
+  .textkeyframe p {
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	text-align: center;
+	overflow: hidden;
+	color: white;
+  }
+  .textkeyframe p span.typed-text {
+	font-weight: bold;
+	color: #dd7732;
+  }
+  .textkeyframe p span.cursor {
+	display: inline-block;
+	background-color: #ccc;
+	margin-left: 0.1rem;
+	width: 3px;
+	animation: blink 1s infinite;
+  }
+.textkeyframe p span.cursor.typing {
+	animation: none;
+  }
+@keyframes blink {
+	0%  { background-color: #ccc; }
+	49% { background-color: #ccc; }
+	50% { background-color: transparent; }
+	99% { background-color: transparent; }
+	100%  { background-color: #ccc; }
+  }
