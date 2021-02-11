@@ -45,10 +45,10 @@
         
         #canvastext {
             background-color: transparent;
-            background-image: url(https://lh3.googleusercontent.com/--vCv4c2ydA4/VouNG4inXsI/AAAAAAAACds/sMkZeNpv62g/s0-Ic42/bg.png), url(https://lh3.googleusercontent.com/-ociyNHFTLno/VouOOmMG97I/AAAAAAAACeE/q3-PK_BG9Z4/s0-Ic42/background.png);
+            background-image: url(https://lh3.googleusercontent.com/--vCv4c2ydA4/VouNG4inXsI/AAAAAAAACds/sMkZeNpv62g/s0-Ic42/bg.png), url(background.png);
             background-position: top center, bottom center;
             background-repeat: no-repeat;
-            repeat-x;
+            zrepeat-x;
             background-size: 100% auto, 100% auto;
             z-index: 5;
             position: absolute;
@@ -361,11 +361,18 @@ ul#example li p {
   color: #a7abb1;
   font-size: 25px;
 }
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
     </style>
 </head>
 
 <body>
-
+  
     <div class="content-logo-wrap">
 
         <div class="content-logo">
@@ -386,7 +393,10 @@ ul#example li p {
 				<use xlink:href="#s-text" class="text"></use>
 			</svg>
         </div>
-			
+        <video autoplay muted loop id="myVideo">
+            <source src="video/3731743479006759008.mp4" type="video/mp4">
+            
+        </video>
     </div>
     <div id="container">
 		
@@ -409,8 +419,10 @@ ul#example li p {
         <canvas id="canvastext"></canvas>
 
         
-       
+        
     </div>
+   
+      
     <div id="footer-controls">
 
         <div style="clear:both;">
