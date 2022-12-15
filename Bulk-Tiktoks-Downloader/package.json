@@ -1,0 +1,19 @@
+{
+  "name": "bulktok",
+  "version": "2.1.0",
+  "description": "",
+  "main": "bulktok.js",
+  "scripts": {
+    "test": "node bulktok.js proflie url"
+  },
+  "keywords": [],
+  "author": "Karim ELsayed (karim0sec)",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "follow-redirect-url": "^2.0.1",
+    "node-fetch": "^3.3.0",
+    "puppeteer": "^19.4.0",
+    "puppeteer-extra": "^3.3.4"
+  }
+}
