@@ -1,3 +1,0 @@
-npm i
-npm i path
-npm i follow-redirect-url

@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "follow-redirect-url": "^2.0.1",
-    "puppeteer": "^19.4.0",
-    "puppeteer-extra": "^3.3.4"
-  }
-}
