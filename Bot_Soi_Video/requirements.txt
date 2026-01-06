@@ -1,7 +1,0 @@
-python-telegram-bot
-google-generativeai
-gspread
-oauth2client
-yt-dlp
-flask
-gunicorn
