@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Tour Sài Gòn Online</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f0f2f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .card { border: none; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
+        .badge-custom { font-weight: 500; padding: 6px 10px; border-radius: 6px; }
+        .bg-dist { background-color: #e7f1ff; color: #0d6efd; }
+        .bg-cat { background-color: #d1e7dd; color: #0f5132; }
+        .search-box { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+
+<div class="container py-4">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary">🍜 Food Tour Sài Gòn</h1>
+        <p class="text-muted">Dữ liệu cập nhật trực tiếp từ Google Sheet</p>
+    </div>
+    
+    <div class="search-box p-4 mb-5">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label fw-bold small text-muted">Từ khóa</label>
+                <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Tìm món, tên quán...">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label fw-bold small text-muted">Quận</label>
+                <select id="districtFilter" class="form-select form-select-lg">
+                    <option value="">Tất cả Quận</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label fw-bold small text-muted">Loại món</label>
+                <select id="categoryFilter" class="form-select form-select-lg">
+                    <option value="">Tất cả loại món</option>
+                </select>
+            </div>
+        </div>
+        <div class="mt-3 text-end">
+            <span class="badge bg-secondary">Tìm thấy: <span id="count">0</span> quán</span>
+        </div>
+    </div>
+
+    <div id="loading" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-2">Đang tải dữ liệu từ Sheet...</p>
+    </div>
+    <div id="results" class="row g-4"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+    // ID của file Google Sheet bạn cung cấp
+    const sheetId = '1uJk8tFBuAJDHo8XD7J69vzjufjPwGyXqxsU5kzA2R-8';
+    // Link chuyển đổi sang định dạng CSV để đọc online (dùng endpoint gviz)
+    const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&gid=0`;
+
+    let allData = [];
+
+    window.onload = function() {
+        Papa.parse(csvUrl, {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                document.getElementById('loading').style.display = 'none';
+                allData = results.data;
+                initFilters(allData);
+                renderData(allData);
+            },
+            error: function(err) {
+                document.getElementById('loading').innerHTML = `<div class="alert alert-danger">Lỗi đọc Sheet. Vui lòng kiểm tra lại quyền truy cập.</div>`;
+            }
+        });
+    };
+
+    function initFilters(data) {
+        const districts = [...new Set(data.map(item => item['Quận']).filter(Boolean))].sort();
+        const categories = [...new Set(data.map(item => item['Phân loại món']).filter(Boolean))].sort();
+
+        const distSelect = document.getElementById('districtFilter');
+        districts.forEach(d => distSelect.add(new Option(d, d)));
+
+        const catSelect = document.getElementById('categoryFilter');
+        categories.forEach(c => catSelect.add(new Option(c, c)));
+    }
+
+    function renderData(data) {
+        const container = document.getElementById('results');
+        const countSpan = document.getElementById('count');
+        container.innerHTML = '';
+        countSpan.innerText = data.length;
+
+        data.forEach(row => {
+            if(!row['Tên quán']) return;
+
+            // Xử lý hiển thị note
+            const noteHtml = row['Note'] 
+                ? `<div class="mt-3 pt-2 border-top small text-danger"><i class="bi bi-exclamation-circle"></i> ${row['Note']}</div>` 
+                : '';
+
+            const html = `
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title fw-bold text-dark mb-0">${row['Tên quán']}</h5>
+                                <span class="badge bg-cat badge-custom ms-2">${row['Phân loại món']}</span>
+                            </div>
+                            <h6 class="text-primary mb-3">${row['Tên món']}</h6>
+                            
+                            <div class="small text-muted mb-2">📍 ${row['Tên đường']}, ${row['Quận']}</div>
+                            <div class="small text-muted mb-2">⏰ ${row['Giờ mở cửa']}</div>
+                            <div class="small fw-bold text-success">💰 ${row['Khoảng giá']}</div>
+
+                            ${noteHtml}
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                            <span class="badge bg-dist badge-custom">${row['Quận']}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += html;
+        });
+    }
+
+    function filterData() {
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        const dist = document.getElementById('districtFilter').value;
+        const cat = document.getElementById('categoryFilter').value;
+
+        const filtered = allData.filter(item => {
+            if (!item['Tên quán']) return false;
+            
+            // Tìm kiếm an toàn (tránh lỗi nếu dữ liệu trống)
+            const nameStr = (item['Tên quán'] || '').toLowerCase();
+            const foodStr = (item['Tên món'] || '').toLowerCase();
+            
+            const matchSearch = nameStr.includes(search) || foodStr.includes(search);
+            const matchDist = dist === "" || item['Quận'] === dist;
+            const matchCat = cat === "" || item['Phân loại món'] === cat;
+            
+            return matchSearch && matchDist && matchCat;
+        });
+
+        renderData(filtered);
+    }
+
+    document.getElementById('searchInput').addEventListener('input', filterData);
+    document.getElementById('districtFilter').addEventListener('change', filterData);
+    document.getElementById('categoryFilter').addEventListener('change', filterData);
+</script>
+
+</body>
+</html>
