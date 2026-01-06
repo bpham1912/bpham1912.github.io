@@ -1,164 +1,56 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Tour Sài Gòn</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <style>
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
-        .card { border: none; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .badge-dist { background-color: #e3f2fd; color: #0d47a1; }
-        .badge-cat { background-color: #e8f5e9; color: #1b5e20; }
-        .search-container { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Food Tour Sài Gòn</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<style>body{background-color:#f0f2f5;font-family:'Segoe UI',sans-serif}.card{border:none;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:0.2s}.card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,0.12)}.badge-custom{font-weight:500;padding:6px 10px;border-radius:6px}.bg-dist{background:#e7f1ff;color:#0d6efd}.bg-cat{background:#d1e7dd;color:#0f5132}.search-box{background:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}.btn-map{font-size:0.9rem}</style>
 </head>
 <body>
-
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="fw-bold text-primary display-5"><i class="bi bi-geo-alt-fill"></i> Food Tour Sài Gòn</h1>
-        <p class="text-muted">Tra cứu món ngon, quán "ruột" tại TP.HCM</p>
-    </div>
-    
-    <div class="search-container mb-4">
-        <div class="row g-3">
-            <div class="col-md-4">
-                <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="🔍 Tìm món, tên quán...">
-            </div>
-            <div class="col-md-4">
-                <select id="districtFilter" class="form-select form-select-lg">
-                    <option value="">Tất cả Quận</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select id="categoryFilter" class="form-select form-select-lg">
-                    <option value="">Tất cả loại món</option>
-                </select>
-            </div>
-        </div>
-        <div class="mt-3 text-end text-secondary small">
-            Đã tìm thấy <span id="count" class="fw-bold text-dark">0</span> địa điểm
-        </div>
-    </div>
-
-    <div id="results" class="row g-4">
-        </div>
+<div class="container py-4">
+<div class="text-center mb-5"><h1 class="fw-bold text-primary display-6"><i class="bi bi-geo-alt-fill"></i> Food Tour Sài Gòn</h1><p class="text-muted">Dữ liệu được bảo vệ và cập nhật tự động</p></div>
+<div class="search-box p-4 mb-4"><div class="row g-3"><div class="col-md-6"><label class="form-label fw-bold small text-muted">Tìm kiếm</label><div class="input-group"><span class="input-group-text bg-white"><i class="bi bi-search"></i></span><input type="text" id="sIp" list="sgs" class="form-control" placeholder="Gõ tên món/quán..."><button class="btn btn-primary px-4" id="btnS">Tìm kiếm</button><datalist id="sgs"></datalist></div></div><div class="col-md-3"><label class="form-label fw-bold small text-muted">Khu vực</label><select id="dFt" class="form-select"><option value="">Tất cả Quận</option></select></div><div class="col-md-3"><label class="form-label fw-bold small text-muted">Loại món</label><select id="cFt" class="form-select"><option value="">Tất cả loại món</option></select></div></div><div class="mt-3 text-end"><span class="badge bg-secondary">Hiển thị: <span id="cnt">0</span></span></div></div>
+<div id="ldg" class="text-center py-5"><div class="spinner-border text-primary"></div><p class="mt-2 text-muted">Đang giải mã dữ liệu...</p></div>
+<div id="res" class="row g-4"></div>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script>
-    let allData = [];
-
-    // Tự động chạy khi mở web
-    window.onload = function() {
-        // Đọc file data.csv nằm cùng thư mục
-        Papa.parse("data.csv", {
-            download: true,
-            header: true,
-            skipEmptyLines: true,
-            complete: function(results) {
-                allData = results.data;
-                initFilters(allData);
-                renderData(allData);
-            },
-            error: function(err) {
-                document.getElementById('results').innerHTML = 
-                    `<div class="alert alert-danger text-center w-100">
-                        ❌ Không tìm thấy file <b>data.csv</b>.<br>
-                        Vui lòng tải file từ Sheet về, đặt tên là data.csv và để cùng thư mục với file này.
-                    </div>`;
-            }
-        });
-    };
-
-    // Tạo danh sách chọn Quận và Loại món
-    function initFilters(data) {
-        const districts = [...new Set(data.map(i => i['Quận']).filter(Boolean))].sort();
-        const categories = [...new Set(data.map(i => i['Phân loại món']).filter(Boolean))].sort();
-
-        const distSelect = document.getElementById('districtFilter');
-        districts.forEach(d => distSelect.add(new Option(d, d)));
-
-        const catSelect = document.getElementById('categoryFilter');
-        categories.forEach(c => catSelect.add(new Option(c, c)));
-    }
-
-    // Hiển thị danh sách ra màn hình
-    function renderData(data) {
-        const container = document.getElementById('results');
-        document.getElementById('count').innerText = data.length;
-        container.innerHTML = '';
-
-        if (data.length === 0) {
-            container.innerHTML = '<div class="text-center text-muted w-100 py-4">Không tìm thấy kết quả nào.</div>';
-            return;
-        }
-
-        data.forEach(row => {
-            if(!row['Tên quán']) return; // Bỏ dòng lỗi
-
-            // Xử lý ghi chú
-            const note = row['Note'] 
-                ? `<div class="mt-2 pt-2 border-top small text-danger"><i class="bi bi-info-circle"></i> ${row['Note']}</div>` 
-                : '';
-
-            const html = `
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 p-3">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5 class="fw-bold mb-1 text-dark">${row['Tên quán']}</h5>
-                                <span class="badge badge-cat px-2 py-1 rounded-pill small">${row['Phân loại món']}</span>
-                            </div>
-                            <span class="badge bg-warning text-dark">${row['Khoảng giá']}</span>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <h6 class="text-primary fw-bold">${row['Tên món']}</h6>
-                            <p class="small text-secondary mb-1"><i class="bi bi-geo-alt"></i> ${row['Tên đường']}, ${row['Quận']}</p>
-                            <p class="small text-secondary mb-1"><i class="bi bi-clock"></i> ${row['Giờ mở cửa']}</p>
-                        </div>
-
-                        ${note}
-                        
-                        <div class="mt-auto pt-3 text-end">
-                            <span class="badge badge-dist">${row['Quận']}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-            container.innerHTML += html;
-        });
-    }
-
-    // Xử lý bộ lọc
-    function filterData() {
-        const search = document.getElementById('searchInput').value.toLowerCase();
-        const district = document.getElementById('districtFilter').value;
-        const category = document.getElementById('categoryFilter').value;
-
-        const filtered = allData.filter(item => {
-            if (!item['Tên quán']) return false;
-            
-            const name = (item['Tên quán'] + " " + item['Tên món']).toLowerCase();
-            const matchSearch = name.includes(search);
-            const matchDist = district === "" || item['Quận'] === district;
-            const matchCat = category === "" || item['Phân loại món'] === category;
-
-            return matchSearch && matchDist && matchCat;
-        });
-
-        renderData(filtered);
-    }
-
-    // Gán sự kiện cho các ô nhập liệu
-    document.getElementById('searchInput').addEventListener('input', filterData);
-    document.getElementById('districtFilter').addEventListener('change', filterData);
-    document.getElementById('categoryFilter').addEventListener('change', filterData);
-
+// Code logic da duoc ma hoa (Obfuscated)
+const _0x1a=['1hKalD82OedQ3OOc03xKm8VTbrhfOsen0BrJ-FWZpbg8','gviz/tq?tqx=out:csv&gid=0','innerHTML','value','toLowerCase','includes','createElement','option','appendChild','getElementById','display','none','length','innerText','Tên quán','Tên món','Quận','Phân loại món','Note','Tên đường','Giờ mở cửa','Khoảng giá','<div class="col-md-6 col-lg-4"><div class="card h-100"><div class="card-body"><div class="d-flex justify-content-between align-items-start mb-2"><h5 class="card-title fw-bold text-dark mb-0 text-truncate" title="','">','</h5><span class="badge bg-cat badge-custom ms-2 text-nowrap">','</span></div><h6 class="text-primary mb-3 fw-bold">','</h6><div class="small text-muted mb-1"><i class="bi bi-geo-alt text-danger"></i> ','</div><div class="small text-muted mb-1"><i class="bi bi-clock text-primary"></i> ','</div><div class="small fw-bold text-success mb-3"><i class="bi bi-cash"></i> ','</div>','<div class="mt-2 pt-2 border-top small text-danger"><i class="bi bi-info-circle"></i> ','</div>','</div><div class="card-footer bg-white border-0 pb-3 d-flex justify-content-between align-items-center"><span class="badge bg-dist badge-custom">','</span><a href="https://www.google.com/maps/search/?api=1&query=',' + TP.HCM" target="_blank" class="btn btn-outline-primary btn-sm btn-map rounded-pill"><i class="bi bi-map-fill"></i> Chỉ đường</a></div></div></div>','<div class="text-center text-muted w-100 py-4"><h5>Không tìm thấy!</h5></div>','change','click','keypress','Enter'];
+const _id = _0x1a[0]; const _url = `https://docs.google.com/spreadsheets/d/${_id}/${_0x1a[1]}`;
+let _d = [];
+window.onload=()=>{Papa.parse(_url,{download:!0,header:!0,skipEmptyLines:!0,complete:(r)=>{document.getElementById('ldg').style[_0x1a[10]]=_0x1a[11];_d=r.data;_iF(_d);_rD(_d)},error:()=>{alert('Lỗi kết nối Sheet!')}})};
+function _iF(d){
+    const ds=[...new Set(d.map(i=>i[_0x1a[16]]).filter(Boolean))].sort();
+    const cs=[...new Set(d.map(i=>i[_0x1a[17]]).filter(Boolean))].sort();
+    const dS=document[_0x1a[9]]('dFt'), cS=document[_0x1a[9]]('cFt'), sL=document[_0x1a[9]]('sgs');
+    ds.forEach(x=>dS.add(new Option(x,x))); cs.forEach(x=>cS.add(new Option(x,x)));
+    const uN=new Set(); d.forEach(i=>{if(i[_0x1a[14]])uN.add(i[_0x1a[14]]);if(i[_0x1a[15]])uN.add(i[_0x1a[15]])});
+    Array.from(uN).slice(0,500).forEach(v=>{const o=document[_0x1a[6]](_0x1a[7]);o[_0x1a[3]]=v;sL[_0x1a[8]](o)});
+}
+function _rD(d){
+    const c=document[_0x1a[9]]('res'); document[_0x1a[9]]('cnt')[_0x1a[13]]=d[_0x1a[12]]; c[_0x1a[2]]='';
+    if(d[_0x1a[12]]===0){c[_0x1a[2]]=_0x1a[25];return}
+    d.forEach(r=>{
+        if(!r[_0x1a[14]])return;
+        const n=r[_0x1a[18]]?_0x1a[23]+r[_0x1a[18]]+_0x1a[21]:'';
+        const h=_0x1a[22]+r[_0x1a[14]]+_0x1a[23]+r[_0x1a[14]]+_0x1a[24]+r[_0x1a[17]]+_0x1a[25]+r[_0x1a[15]]+_0x1a[25]+r[_0x1a[19]]+_0x1a[25]+r[_0x1a[20]]+_0x1a[25]+r[_0x1a[21]]+_0x1a[25]+n+_0x1a[25]+r[_0x1a[16]]+_0x1a[25]+encodeURIComponent(r[_0x1a[19]]+', '+r[_0x1a[16]])+_0x1a[26];
+        c[_0x1a[2]]+=h;
+    })
+}
+function _fD(){
+    const s=document[_0x1a[9]]('sIp')[_0x1a[3]][_0x1a[4]](), dt=document[_0x1a[9]]('dFt')[_0x1a[3]], ct=document[_0x1a[9]]('cFt')[_0x1a[3]];
+    const f=_d.filter(i=>{
+        if(!i[_0x1a[14]])return!1;
+        const n=(i[_0x1a[14]]||'')[_0x1a[4]](), m=(i[_0x1a[15]]||'')[_0x1a[4]]();
+        return (s===''||n[_0x1a[5]](s)||m[_0x1a[5]](s))&&(dt===''||i[_0x1a[16]]===dt)&&(ct===''||i[_0x1a[17]]===ct);
+    });
+    _rD(f);
+}
+document[_0x1a[9]]('btnS').addEventListener(_0x1a[28],_fD);
+document[_0x1a[9]]('sIp').addEventListener(_0x1a[29],(e)=>{if(e.key===_0x1a[30])_fD()});
+document[_0x1a[9]]('dFt').addEventListener(_0x1a[27],_fD);
+document[_0x1a[9]]('cFt').addEventListener(_0x1a[27],_fD);
 </script>
 </body>
 </html>
