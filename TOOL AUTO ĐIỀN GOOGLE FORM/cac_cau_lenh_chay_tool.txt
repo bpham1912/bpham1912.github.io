@@ -1,0 +1,30 @@
+======================================================================
+               DANH SÁCH CÁC CÂU LỆNH CHẠY TOOL
+======================================================================
+
+1. LỆNH DI CHUYỂN VÀO THƯ MỤC TOOL:
+cd "C:\Users\PC\Desktop\TOOL AUTO ĐIỀN GOOGLE FORM"
+
+2. LỆNH MỞ GIAO DIỆN ĐỒ HỌA (GUI):
+python main_gui.py
+
+(Hoặc nếu máy dùng lệnh py):
+py main_gui.py
+
+
+3. LỆNH CHẠY PHIÊN BẢN DÒNG LỆNH (CLI):
+python run_cli.py
+
+
+4. LỆNH CHẠY DÒNG LỆNH CÓ SẴN THAM SỐ SỐ LƯỢNG (Ví dụ 50 lượt):
+python run_cli.py -n 50
+
+
+5. LỆNH CHẠY DÒNG LỆNH TÙY CHỈNH SỐ LƯỢNG VÀ DELAY (Nghỉ 1.5s - 3.0s):
+python run_cli.py -n 100 --min-delay 1.5 --max-delay 3.0
+
+
+6. LỆNH CHẠY VỚI LINK FORM BẤT KỲ:
+python run_cli.py -u "https://docs.google.com/forms/d/e/ID_FORM/viewform" -n 50
+
+======================================================================

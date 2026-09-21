@@ -1,0 +1,59 @@
+======================================================================
+               HƯỚNG DẪN VÀ CÁC CÂU LỆNH CHẠY TOOL AUTO FORM
+======================================================================
+
+Thư mục chứa Tool:
+C:\Users\PC\Desktop\TOOL AUTO ĐIỀN GOOGLE FORM
+
+----------------------------------------------------------------------
+CÁCH 1: CHẠY NHANH 1-CLICK (KHÔNG CẦN GÕ LỆNH - KHUYÊN DÙNG)
+----------------------------------------------------------------------
+Chỉ cần nhấp đúp chuột (Double-Click) trực tiếp vào một trong hai file:
+
+1. Chay_Tool_GUI.bat
+   -> Mở giao diện đồ họa đẹp mắt, có nút Bắt đầu, Tạm dừng, Dừng lại,
+      thanh tiến trình %, thống kê Thành công / Thất bại và log trực tiếp.
+
+2. Chay_Tool_CLI.bat
+   -> Mở cửa sổ dòng lệnh đen (Command Prompt) để chạy nhanh.
+
+
+----------------------------------------------------------------------
+CÁCH 2: CÁC CÂU LỆNH CHẠY TRỰC TIẾP TỪ CMD / POWERSHELL / TERMINAL
+----------------------------------------------------------------------
+
+Bước 1: Mở Command Prompt (CMD) hoặc PowerShell, gõ lệnh di chuyển vào thư mục tool:
+cd "C:\Users\PC\Desktop\TOOL AUTO ĐIỀN GOOGLE FORM"
+
+Bước 2: Chọn một trong các câu lệnh bên dưới để chạy:
+
+1. Chạy giao diện đồ họa (GUI):
+   python main_gui.py
+
+   (Nếu máy dùng lệnh "py" thay vì "python"):
+   py main_gui.py
+
+2. Chạy phiên bản dòng lệnh (CLI) cơ bản:
+   python run_cli.py
+
+3. Chạy CLI với số lượng lượt điền chỉ định sẵn (ví dụ 50 lượt):
+   python run_cli.py -n 50
+
+4. Chạy CLI tùy chỉnh số lượt và thời gian nghỉ (delay giữa mỗi lần gửi):
+   python run_cli.py -n 100 --min-delay 1.5 --max-delay 3.0
+
+5. Chạy CLI với link form chỉ định cụ thể:
+   python run_cli.py -u "https://docs.google.com/forms/d/e/ID_FORM/viewform" -n 50
+
+
+----------------------------------------------------------------------
+LƯU Ý & MẸO XỬ LÝ KHI GẶP LỖI
+----------------------------------------------------------------------
+- Lỗi "'python' is not recognized...":
+  Hãy thử thay chữ "python" bằng "py", ví dụ:
+  py main_gui.py
+
+- Muốn dừng khi đang chạy ở dòng lệnh (CLI):
+  Nhấn tổ hợp phím: Ctrl + C
+
+======================================================================
