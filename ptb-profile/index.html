@@ -32,7 +32,7 @@ nav a:hover{color:var(--accd)}
 .btn{padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--accd);color:var(--accd)}
 .btn.p{background:var(--acc);border-color:var(--acc);color:var(--onacc)}
 .badge{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:14px}
-.avatar{width:92px;height:92px;border-radius:50%;background:var(--acc);color:var(--onacc);display:grid;place-items:center;font:800 34px "Bricolage Grotesque",sans-serif}
+.avatar{width:100%;max-width:280px;aspect-ratio:1;border-radius:50%;object-fit:cover;object-position:50% 70%;border:4px solid var(--acc);justify-self:center}
 .badge dl{margin:0;display:grid;gap:10px;font-size:14px}
 .badge dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
 .badge dd{margin:0;font-weight:500;word-break:break-word}
@@ -97,12 +97,11 @@ footer ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:8px}
 <div>
 <p class="kicker">Nhân viên Marketing · TP. Hồ Chí Minh</p>
 <h1>Phạm Thanh <span>Bình</span></h1>
-<image href="https://graph.facebook.com/100009479584490/picture?height=500&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662"></image>
 <p class="lead">Marketer có nền tảng lập trình và thiết kế. Tôi chạy quảng cáo bán hàng trên Facebook, TikTok, TikTok Shop, dựng landing page, xây fanpage và quản lý ngân sách cho cửa hàng.</p>
 <div class="btns"><a class="btn p" href="#kinhnghiem">Xem kinh nghiệm</a><a class="btn" href="#lienhe">Liên hệ</a></div>
 </div>
 <aside class="badge" aria-label="Thông tin nhanh">
-<div class="avatar" aria-hidden="true">PB</div>
+<img class="avatar" alt="Chân dung Phạm Thanh Bình" src="https://graph.facebook.com/100009479584490/picture?height=500&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662">
 <dl>
 <div><dt>Vị trí hiện tại</dt><dd>Marketing, Hộ kinh doanh Halistore</dd></div>
 <div><dt>Lĩnh vực</dt><dd>Gia dụng, thiết bị tưới tiêu</dd></div>
